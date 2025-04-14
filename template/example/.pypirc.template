@@ -1,0 +1,8 @@
+[distutils]
+index-servers =
+    gitlab
+
+[gitlab]
+repository = https://gitlab.fit.nasa.gov/api/v4/projects/PROJECTNUMBERGOESHERE/packages/pypi
+username = 
+password = 

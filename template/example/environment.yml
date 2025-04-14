@@ -1,0 +1,9 @@
+name: {{ MODULE_NAME }}
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python
+  - pip
+  - pytest
+  - conda-build

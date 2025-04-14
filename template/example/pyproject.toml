@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "Tanksizer_pip"
+version = "1.0.0"
+authors = [
+  { name=" Taha Itani ", email="  taha.itani@nasa.gov  " },
+]
+maintainers = [
+  { name=" Taha Itani ", email=" taha.itani@nasa.gov" },
+]
+description = "{{ Tank sizing tool }}"
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "{{ https://gitlab.fit.nasa.gov/aco/tanksizer_pip.git }}"
+Issues = "{{ PROJECT_GITLAB_URL }}/-/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/{{ Tanksizer_pip }}"]
+
+[project.entry-points.'dyreqt.plugins']
+ MODULE_NAME  = '{{ Tanksizer_pip }}'

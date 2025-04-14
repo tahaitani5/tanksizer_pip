@@ -1,0 +1,31 @@
+package:
+  name: "{{ MODULE_NAME }}"
+  version: "{{ PROJECT_VERSION }}"
+
+source:
+  path: ../
+
+build:
+  noarch: python
+  number: 0
+  script: python -m pip install . --no-deps --no-build-isolation -vv
+
+requirements:
+  build:
+    - python
+    - hatchling
+    # Other build requirements as needed
+  run:
+    - python
+    # Other run requirements as needed
+
+about:
+  home: "{{ PROJECT_GITLAB_URL }}"
+  description: |
+    {{ PROJECT_DESCRIPTION }}
+  license_file: LICENSE
+  summary: |
+    {{ PROJECT_DESCRIPTION }}
+  dev_url: {{ PROJECT_GITLAB_URL }}
+  doc_url: None
+  doc_source_url: None

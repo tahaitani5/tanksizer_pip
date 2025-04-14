@@ -1,0 +1,29 @@
+image: docker:19.03.12
+
+variables:
+  # Specify to Docker where to create the certificates. Docker
+  # creates them automatically on boot, and creates
+  # `/certs/client` to share between the service and job
+  # container, thanks to volume mount from config.toml
+  DOCKER_TLS_CERTDIR: "/certs"
+  # Specify to the runner to update all submodules recursively before the run
+  GIT_SUBMODULE_STRATEGY: recursive
+
+default:
+  tags:
+    - aco
+    - devops
+    - acoeuropa
+    
+include:
+  - project: 'aco/mbe-infrastructure/devsecops-tools/aco-ci-template-library'
+    file: 'pip/simple-pip-build.yml'
+    with:
+      image: gitlabregistry.fit.nasa.gov/aco/mbe-infrastructure/aco-miniforge/release:latest
+  - project: 'aco/mbe-infrastructure/devsecops-tools/aco-ci-template-library'
+    file: 'pip/simple-pip-test.yml'
+    with:
+      image: gitlabregistry.fit.nasa.gov/aco/mbe-infrastructure/aco-miniforge/release:latest
+stages:
+  - build
+  - test
